@@ -44,10 +44,14 @@ return [
     ],
 
     'CONS_BANNER_TYPE_ARRAY' => [
-        '1' => 'The Story of Filo',
-        '2' => 'Contact Address',
-        '3' => 'Opening Hours',
-        '4' => 'The Tradition'
+        '1' => 'Home - Banner Video',
+        '2' => 'Home - What’s New',
+        '3' => 'Home - Short Description About',
+        '4' => 'Home - Services',
+        '5' => 'Home - Accolades & Awards',
+        '6' => 'Home - Grow with us',
+        '7' => 'Home - Connect with us',
+        '8' => 'Home - Stay in the loop'
     ],
 
     'CONS_MEDIA_CONTENT_TYPE_ARRAY' => [

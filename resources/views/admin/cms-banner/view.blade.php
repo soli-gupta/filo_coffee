@@ -20,7 +20,7 @@
                     <input type="hidden" required="" name="id" value="{{ (isset($data_row->id))?$data_row->id:'' }}">
 
                     <div class="box-body">
-                        <div class="form-group form-1 form-2 form-3 form-4 form-6">
+                        <div class="form-group form-1 form-2 form-3 form-4 form-5 form-6 form-7">
                             <label for="inputEmail3" class="col-sm-2 control-label">Type</label>
                             <div class="col-sm-10">
                                 <select id="type" name="type" class="form-control select" required>
@@ -42,55 +42,88 @@
                             </div>
                         </div>
 
-                        <div class="form-group form-1 form-2 form-3 form-4">
+                        <div class="form-group form-1 form-4 form-5 form-6 form-7">
                             <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control get_url_name" id="title" name="title" value="{{ (isset($data_row->title))?$data_row->title:old('title') }}">
                             </div>
                         </div>
 
-                        <div class="form-group hide">
+                        <div class="form-group form-1  form-2 form-3 form-4 form-5 form-8 form-7">
                             <label for="inputEmail3" class="col-sm-2 control-label">Sub Text</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="sub_text" name="sub_text" value="{{ (isset($data_row->sub_text))?$data_row->sub_text:old('sub_text') }}">
+                                <textarea class="form-control" name="sub_text" id="sub_text">{{ (isset($data_row->sub_text))?$data_row->sub_text:old('sub_text') }}</textarea>
+
                             </div>
                         </div>
 
-                        <div class="form-group form-1 form-2 form-3">
+                        <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control summernote" id="summernote" name="description">{{ (isset($data_row->description))?$data_row->description:old('description') }}</textarea>
                             </div>
                         </div>
 
-                        <div class="form-group form-1 form-4">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Image</label>
+                        <div class="form-group form-1 form-2">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Link Url</label>
                             <div class="col-sm-10">
-                                <?php if (isset($data_row['image_path']) && $data_row['image_path'] != '') { ?>
-                                    <a href="{{ STATIC_PUBLIC_URL_STORAGE }}<?= $data_row['image_path']; ?>" data-lightbox="{{ $data_row->id}}" data-title="Image">
-                                        <img src="{{ STATIC_PUBLIC_URL_STORAGE }}<?php echo $data_row['image_path']; ?>" height="70px">
-                                    </a>
-                                    <br /> Delete <input type="checkbox" name="image_delete" value="1">
-                                <?php } ?>
-                                <input type="file" name="image_path" id="image_path" accept="image/jpeg,image/gif,image/x-png">
+                                <input type="text" class="form-control" id="link_url" name="link_url" value="{{ (isset($data_row->link_url))?$data_row->link_url:old('link_url') }}">
                             </div>
                         </div>
 
-                        <div class="form-group form-1 form-4">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Image Mobile</label>
+                        <div class="form-group form-2">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Date</label>
                             <div class="col-sm-10">
-                                <?php if (isset($data_row['image_path_mobile']) && $data_row['image_path_mobile'] != '') { ?>
-                                    <a href="{{ STATIC_PUBLIC_URL_STORAGE }}<?= $data_row['image_path_mobile']; ?>" data-lightbox="{{ $data_row->id}}" data-title="Image">
-                                        <img src="{{ STATIC_PUBLIC_URL_STORAGE }}<?php echo $data_row['image_path_mobile']; ?>" height="70px">
-                                    </a>
-                                    <br /> Delete <input type="checkbox" name="image_delete" value="1">
+                                <input type="date" class="form-control" id="date" name="date" value="{{ (isset($data_row->date))?$data_row->date:old('date') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group form-1 form-6 form-7">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Upload Image/Video</label>
+                            <div class="col-sm-10">
+
+                                <input type="file" class="form-control" id="image_path" name="image_path" accept="image/*,.mp4">
+                                <p class="help-block">Image Size : 1980 × 791 px </p>
+                                <?php if (isset($data_row['image_path']) && $data_row['image_path'] != '') {
+                                    $video = strstr($data_row['image_path'], '.');
+                                    if ($video == '.mp4') {
+                                ?>
+                                        <a target="_blank" href="{{ STATIC_PUBLIC_URL_STORAGE }}{{(isset($data_row->image_path))?$data_row->image_path:old('image_path') }}"> <img src="/assets/images/noun-video.svg" height="30px"></a>
+                                    <?php } else { ?>
+                                        <a href="{{ STATIC_PUBLIC_URL_STORAGE }}<?= $data_row['image_path']; ?>" data-lightbox="{{ $data_row->id}}" data-title="Image">
+                                            <img src="{{ STATIC_PUBLIC_URL_STORAGE }}<?php echo $data_row['image_path']; ?>" height="70px">
+                                        </a>
+                                    <?php } ?>
+                                    <p style="font-size: 12px;padding-top: 5px;"><?php echo substr($data_row['image_path'], strrpos($data_row['image_path'], '/') + 1) . "\n"; ?></p>
+                                    Delete <input type="checkbox" name="image_path_delete" value="1">
                                 <?php } ?>
-                                <input type="file" name="image_path_mobile" id="image_path_mobile" accept="image/jpeg,image/gif,image/x-png,.mp4">
 
                             </div>
                         </div>
 
-                        <div class="form-group form-1 form-2 form-3 form-4 form-6">
+                        <div class="form-group form-1 form-6">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Mobile Image/Video</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" id="image_path_mobile" name="image_path_mobile" accept="image/*,.mp4">
+                                <p class="help-block">Image Size : 1980 × 791 px </p>
+                                <?php if (isset($data_row['image_path_mobile']) && $data_row['image_path_mobile'] != '') {
+                                    $video = strstr($data_row['image_path_mobile'], '.');
+                                    if ($video == '.mp4') {
+                                ?>
+                                        <a target="_blank" href="{{ STATIC_PUBLIC_URL_STORAGE }}{{(isset($data_row->image_path_mobile))?$data_row->image_path_mobile:old('image_path_mobile') }}"> <img src="/assets/images/noun-video.svg" height="30px"></a>
+                                    <?php } else { ?>
+                                        <a href="{{ STATIC_PUBLIC_URL_STORAGE }}<?= $data_row['image_path_mobile']; ?>" data-lightbox="{{ $data_row->id}}" data-title="Image">
+                                            <img src="{{ STATIC_PUBLIC_URL_STORAGE }}<?php echo $data_row['image_path_mobile']; ?>" height="70px">
+                                        </a>
+                                    <?php } ?>
+                                    <p style="font-size: 12px;padding-top: 5px;"><?php echo substr($data_row['image_path_mobile'], strrpos($data_row['image_path_mobile'], '/') + 1) . "\n"; ?></p>
+                                    Delete <input type="checkbox" name="image_path_mobile_delete" value="1">
+                                <?php } ?>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group form-1 form-2 form-3 form-4 form-5 form-6 form-7">
                             <label for="inputEmail3" class="col-sm-2 control-label">Status</label>
                             <div class="col-sm-10">
                                 <select name="status" class="form-control select" required>
@@ -112,32 +145,10 @@
                         </div>
 
 
-                        <div class="form-group form-1 form-2 form-3 form-4 form-6">
+                        <div class="form-group form-1 form-2">
                             <label for="inputEmail3" class="col-sm-2 control-label">Sorting</label>
                             <div class="col-sm-10">
                                 <input type="number" class="form-control" id="sorting" name="sorting" value="{{ (isset($data_row->sorting))?$data_row->sorting:'1' }}">
-                            </div>
-                        </div>
-
-                        <div class="form-group fieldGroup">
-                            <div class="input-group mb-3">
-                                <input type="text" name="first_name[]" class="form-control" placeholder="First Name" />
-                                <input type="text" name="last_name[]" class="form-control" placeholder="Last Name" />
-                                <input type="text" name="email[]" class="form-control" placeholder="Email address" />
-                                <span class="input-group-text">
-                                    <a href="javascript:void(0);" class="btn btn-success addMore"><i class="custicon plus"></i> Add</a>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="form-group fieldGroupCopy" style="display: none;">
-                            <div class="input-group mb-3">
-                                <input type="text" name="first_name[]" class="form-control" placeholder="First Name" />
-                                <input type="text" name="last_name[]" class="form-control" placeholder="Last Name" />
-                                <input type="text" name="email[]" class="form-control" placeholder="Email address" />
-                                <span class="input-group-text">
-                                    <a href="javascript:void(0)" class="btn btn-danger remove"><i class="custicon cross"></i> Remove</a>
-                                </span>
                             </div>
                         </div>
 
@@ -173,7 +184,6 @@
         el.addEventListener('change', function handleChange(event) {
 
             $(".form-group").hide();
-
             var id = event.target.value;
 
             $(".form-" + id).show();
@@ -191,8 +201,6 @@
             $(".form-group").hide();
             $(".form-" + type).show();
         }
-
-        var maxGroup = 10;
     });
 </script>
 @endpush

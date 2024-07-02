@@ -6,45 +6,20 @@ use Illuminate\Http\Request;
 use App\CmspageModel;
 use App\CmsBannerModel;
 use App\MediaGalleryModel;
-use App\ProductModel;
-use App\ProductCategoryModel;
-use App\ProductSubCategoryModel;
 use DB;
 
 class HomepageCtrl extends Controller
 {
     public function homepage()
     {
-        $items = ProductModel::where('status', '1')->orderBy('sorting', 'asc')->get();
-        $item_categories = ProductCategoryModel::where('status', '1')->orderBy('sorting', 'asc')->get();
-        $filo_stories = CmsBannerModel::where('status', 1)->where('type', '1')->orderBy('sorting', 'asc')->first();
-        $contact_addresses = CmsBannerModel::where('status', 1)->where('type', '2')->orderBy('sorting', 'asc')->first();
-        $opening_hours = CmsBannerModel::where('status', 1)->where('type', '3')->orderBy('sorting', 'asc')->first();
-        $galleries = MediaGalleryModel::where('status', 1)->orderBy('sorting', 'asc')->get();
-
-        $categoryDataArray = [];
-        foreach ($item_categories as $category) {
-
-            $productsNoSubcategory = ProductModel::where('category_id', $category->id)
-                ->whereNull('sub_cate_id')
-                ->get();
-            $subcategories = ProductSubCategoryModel::where('cate_id', $category->id)->get();
-            $subcategoriesData = [];
-
-            foreach ($subcategories as $subcategory) {
-                $products = ProductModel::where('sub_cate_id', $subcategory->id)->get();
-                $subcategoriesData[] = [
-                    'subcategory' => $subcategory,
-                    'products' => $products
-                ];
-            }
-
-            $categoryDataArray[] = [
-                'item_category' => $category,
-                'products_no_subcategory' => $productsNoSubcategory,
-                'subcategories' => $subcategoriesData
-            ];
-        }
+        $banner_videos = CmsBannerModel::where('status', 1)->where('type', '1')->orderBy('sorting', 'asc')->get();
+        $whats_news = CmsBannerModel::where('status', 1)->where('type', '2')->orderBy('sorting', 'asc')->get();
+        $short_about = CmsBannerModel::where('status', 1)->where('type', '3')->first();
+        $services = CmsBannerModel::where('status', 1)->where('type', '4')->first();
+        $accolades_and_awards = CmsBannerModel::where('status', 1)->where('type', '5')->first();
+        $grow_with_us = CmsBannerModel::where('status', 1)->where('type', '6')->first();
+        $scancode = CmsBannerModel::where('status', 1)->where('type', '7')->first();
+        $stay_in_loop = CmsBannerModel::where('status', 1)->where('type', '8')->first();
 
         $pageData = CmspageModel::where('slug', 'home')->first();
         if ($pageData) {
@@ -64,13 +39,14 @@ class HomepageCtrl extends Controller
                 'meta_other' => $pageData->meta_other,
                 'image_alt' => $pageData->image_alt,
                 'parent_slug' => 'homepage',
-                'items' => $items,
-                'itemsByCategory' => $categoryDataArray,  // Changed to match the Blade template
-                'item_categories' => $item_categories,
-                'filo_stories' => $filo_stories,
-                'contact_addresses' => $contact_addresses ? $contact_addresses->description : '',
-                'opening_hours' => $opening_hours ? $opening_hours->description : '',
-                'galleries' => $galleries,
+                'banner_videos' => $banner_videos,
+                'whats_news' => $whats_news,
+                'short_about' => $short_about ? $short_about : '',
+                'services' => $services,
+                'accolades_and_awards' => $accolades_and_awards,
+                'grow_with_us' => $grow_with_us,
+                'scancode' => $scancode,
+                'stay_in_loop' => $stay_in_loop
             ];
         } else {
             return CmspageCtrl::pageNotFound();

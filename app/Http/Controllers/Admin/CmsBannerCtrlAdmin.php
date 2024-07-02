@@ -164,9 +164,6 @@ class CmsBannerCtrlAdmin extends Controller
     return view('admin.' . $this->name_url_folder . '.view', $page_array);
   }
 
-
-
-
   public function save(Request $request)
   {
     $POST_DATA = $request->input();
@@ -179,9 +176,6 @@ class CmsBannerCtrlAdmin extends Controller
     }
     unset($POST_DATA['id']);
 
-
-
-
     if ($POST_DATA['submit_type'] == '3' && $id != '') {
       $delete_status = CmsBannerModel::find($id)->delete();
       $message_type = "message_susuccess";
@@ -189,17 +183,15 @@ class CmsBannerCtrlAdmin extends Controller
       return redirect(ADMIN_FOLDER . '/' . $this->name_url_folder)->with($message_type, $message_text);
     }
 
-
-
-
-
     $array_validate = array();
-    //  $array_validate['title']="required"; 
-    //$array_validate['content1']="required";  
-    $array_validate['image_path'] = "image|mimes:jpeg,png,jpg,mp4";
+    //$array_validate['title'] = "string|max:255";
+    //$array_validate['sub_text'] = "string";
 
-
-
+    if ($id) {
+      $array_validate['image_path'] = 'mimetypes:image/jpeg,image/png,image/jpg,video/mp4|max:20480';
+    } else {
+      $array_validate['image_path'] = 'mimetypes:image/jpeg,image/png,image/jpg,video/mp4|max:20480';
+    }
 
 
 
@@ -209,12 +201,10 @@ class CmsBannerCtrlAdmin extends Controller
     $message_text = "Some error!";
 
     try {
-
-
       $uploadedFile = $request->file('image_path');
       if ($uploadedFile) {
         $destinationPath = 'media/cmsimage/image_path/';
-        $POST_DATA['image_path'] = CmsBlockModel::uploadImageWebp($uploadedFile, $destinationPath);
+        $POST_DATA['image_path'] = CmsBlockModel::uploadFile($uploadedFile, $destinationPath);
       } else {
         if (isset($POST_DATA['image_path_delete'])) {
           $POST_DATA['image_path'] = '';
@@ -225,7 +215,7 @@ class CmsBannerCtrlAdmin extends Controller
       $uploadedFile = $request->file('image_path_mobile');
       if ($uploadedFile) {
         $destinationPath = 'media/cmsimage/image_path_mobile/';
-        $POST_DATA['image_path_mobile'] = CmsBlockModel::uploadImageWebp($uploadedFile, $destinationPath);
+        $POST_DATA['image_path_mobile'] = CmsBlockModel::uploadFile($uploadedFile, $destinationPath);
       } else {
         if (isset($POST_DATA['image_path_mobile_delete'])) {
           $POST_DATA['image_path_mobile'] = '';
@@ -233,27 +223,13 @@ class CmsBannerCtrlAdmin extends Controller
       }
 
 
-      // brochure_pdf
-      $downloads = $request->file('download_file');
-      if ($downloads) {
-        $destinationPath = 'media/file/pdf/download_file/';
-        $POST_DATA['download_file'] = CmsBlockModel::uploadFile($downloads, $destinationPath);
-      } else {
-        if (isset($POST_DATA['downloads_delete'])) {
-          $POST_DATA['download_file'] = '';
-        }
-      }
 
-      //$POST_DATA['photos']=implode(',',$POST_DATA['photos']);
       if ($id == '') {
         $save = CmsBannerModel::create($POST_DATA);
       } else {
-
-
         $save = CmsBannerModel::find($id);
         $save->fill($POST_DATA);
       }
-
 
       $save->save();
       if ($save) {
@@ -264,8 +240,6 @@ class CmsBannerCtrlAdmin extends Controller
       $message_type = "message_error";
       $message_text = $e->getMessage();
     }
-
-
     // return redirect(ADMIN_FOLDER.'/'.$this->name_url_folder)->with($message_type,$message_text);
     if ($message_type == "message_susuccess") {
 

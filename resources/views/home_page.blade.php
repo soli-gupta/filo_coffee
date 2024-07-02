@@ -6,13 +6,14 @@
     <div class="container">
         <div class="customcontainer">
             <div class="bannerslidernew">
+                @foreach ($banner_videos as $banner)
                 <div class="">
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="bannerdetail">
-                                <h2>39 years of Excellence</h2>
-                                <p>Our proficient teams are passionately dedicated to delivering unmatched solutions for all your legal needs</p>
-                                <a href="javascript:void(0);">Know More <div class="svg-anim">
+                                <h2>{{$banner->title}}</h2>
+                                <p>{{$banner->sub_text}}</p>
+                                <a href="{{$banner->link_url}}">Know More <div class="svg-anim">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13" viewBox="0 0 27 13" fill="none">
                                             <path d="M20.4766 11.8097L20.987 12.3201L26.8932 6.41396L20.987 0.507812L20.4766 1.01822L25.5078 6.04939H0V6.77854H25.5078L20.4766 11.8097Z" fill="#454545" />
                                         </svg>
@@ -26,62 +27,13 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="bannervideo">
                                 <video autoplay muted loop>
-                                    <source src="{{ STATIC_PUBLIC_URL }}assets/video/video1.mp4" type="video/mp4">
+                                    <source src="{{ STATIC_PUBLIC_URL_STORAGE }}{{$banner->image_path}}" type="video/mp4">
                                 </video>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="bannerdetail">
-                                <h2>Your Partner on Progress</h2>
-                                <p>With 470+ professionals, including 72+ partners operating from 14 offices pan India, we provide customised solutions and hand-holding that exceeds industry standards.</p>
-                                <a href="javascript:void(0);">Know More <div class="svg-anim">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13" viewBox="0 0 27 13" fill="none">
-                                            <path d="M20.4766 11.8097L20.987 12.3201L26.8932 6.41396L20.987 0.507812L20.4766 1.01822L25.5078 6.04939H0V6.77854H25.5078L20.4766 11.8097Z" fill="#454545" />
-                                        </svg>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13" viewBox="0 0 27 13" fill="none">
-                                            <path d="M20.4766 11.8097L20.987 12.3201L26.8932 6.41396L20.987 0.507812L20.4766 1.01822L25.5078 6.04939H0V6.77854H25.5078L20.4766 11.8097Z" fill="#454545" />
-                                        </svg>
-                                    </div></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="bannervideo">
-                                <video autoplay muted loop>
-                                    <source src="{{ STATIC_PUBLIC_URL }}assets/video/video2.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="bannerdetail">
-                                <h2>Innovation, Technology & Collaboration</h2>
-                                <p>Integrating cutting-edge technology to foster collaboration and provide unique out-of-the-box solutions</p>
-                                <a href="javascript:void(0);">Know More <div class="svg-anim">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13" viewBox="0 0 27 13" fill="none">
-                                            <path d="M20.4766 11.8097L20.987 12.3201L26.8932 6.41396L20.987 0.507812L20.4766 1.01822L25.5078 6.04939H0V6.77854H25.5078L20.4766 11.8097Z" fill="#454545" />
-                                        </svg>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13" viewBox="0 0 27 13" fill="none">
-                                            <path d="M20.4766 11.8097L20.987 12.3201L26.8932 6.41396L20.987 0.507812L20.4766 1.01822L25.5078 6.04939H0V6.77854H25.5078L20.4766 11.8097Z" fill="#454545" />
-                                        </svg>
-                                    </div></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="bannervideo">
-                                <video autoplay muted loop>
-                                    <source src="{{ STATIC_PUBLIC_URL }}assets/video/video3.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -93,15 +45,12 @@
                 <h2>What’s New</h2>
             </div>
             <div class="whatsnewcont">
-                <div class="whatsnewbox" data-aos="fade-left"> <span class="date"><img src="{{ STATIC_PUBLIC_URL }}assets/images/calendar.svg" alt="" class="img-fluid">22 March 2024</span>
-                    <p>Trademark Registrar has no authority to restrict choice of colours – Applicant has right to choose colours</p>
+                @foreach ($whats_news as $what_new)
+                <div class="whatsnewbox" data-aos="fade-left"> <span class="date"><img src="{{ STATIC_PUBLIC_URL }}assets/images/calendar.svg" alt="" class="img-fluid">{{$what_new->date}}</span>
+                    <p>{{$what_new->sub_text}}</p>
                 </div>
-                <div class="whatsnewbox" data-aos="fade-left"> <span class="date"><img src="{{ STATIC_PUBLIC_URL }}assets/images/calendar.svg" alt="" class="img-fluid">15 March 2024</span>
-                    <p>Valuation – Notional cost of specification drawings received free of cost by manufacturer from buyer, before letter of intent identifying former as supplier, is not includible</p>
-                </div>
-                <div class="whatsnewbox" data-aos="fade-left"> <span class="date"><img src="{{ STATIC_PUBLIC_URL }}assets/images/calendar.svg" alt="" class="img-fluid">10 April 2024</span>
-                    <p>RoDTEP benefit extended to exports by Advance Authorisation holders and by EOU and SEZ units</p>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>
@@ -110,7 +59,7 @@
     <div class="container text-center">
         <div class="quote_arrow" data-aos="fade-down"> <img src="{{ STATIC_PUBLIC_URL }}assets/images/quotearrow.svg" alt="" class="img-fluid"> </div>
         <div class="quotetext">
-            <h3 class="reveal-type" data-bg-color="#cccccc" data-fg-color="#02214F"><strong>LKS</strong> is one of the largest integrated full-service law firms in India. Integrity, Knowledge and Passion are the principles that resonate with every member of our family and the work that we do.</h3>
+            <h3 class="reveal-type" data-bg-color="#cccccc" data-fg-color="#02214F">{!! isset($short_about->sub_text) && $short_about->sub_text ? $short_about->sub_text : '' !!}</h3>
         </div>
     </div>
 </section>
@@ -120,8 +69,8 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="serviceleftbox" data-aos="fade-right">
-                        <h3>Services</h3>
-                        <p>Our professionals have experience of working in both traditional sectors such as commodities, automobile, pharmaceuticals, petrochemicals and modern sectors such as e-commerce, big data, renewables.</p>
+                        <h3>{{isset($services->title) && $services->title ? $services->title : ''}}</h3>
+                        <p>{{isset($services->sub_text) && $services->sub_text ? $services->sub_text : ''}}</p>
                         <div class="servicetab">
                             <ul id="serviceTab" role="tablist">
                                 <li> <a class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" aria-selected="true">Transaction<span><img src="{{ STATIC_PUBLIC_URL }}assets/images/left-arrow.svg" alt="" class="img-fluid"></span></a> </li>
@@ -492,9 +441,9 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-6 col-12">
                 <div class="awardleft">
-                    <h3 data-aos="fade-up">Accolades & Awards</h3>
-                    <p>Global recognition validates our commitment to excellence. We and our professionals are regularly appreciated for the quality of services and the depth of legal expertise. Our consistent recognition also proves our maxim of always exceeding expectations.</p>
-                    <a href="award.html">SEE ALL <span>
+                    <h3 data-aos="fade-up">{{isset($accolades_and_awards->title) && $accolades_and_awards->title ? $accolades_and_awards->title  : 'Accolades And Awards'}}</h3>
+                    <p>{{isset($accolades_and_awards->sub_text) && $accolades_and_awards->sub_text ? $accolades_and_awards->sub_text : ''}}</p>
+                    <a href="/awards">SEE ALL <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13" viewBox="0 0 27 13" fill="none">
                                 <path d="M20.4766 11.8097L20.987 12.3201L26.8932 6.41396L20.987 0.507812L20.4766 1.01822L25.5078 6.04939H0V6.77854H25.5078L20.4766 11.8097Z" fill="#454545" />
                             </svg>
@@ -639,12 +588,12 @@
         <div class="customcontainer">
             <div class="row align-items-center">
                 <div class="col-lg-7 col-md-7 col-sm-6 col-12">
-                    <div class="growimg revealimage"> <img src="{{ STATIC_PUBLIC_URL }}assets/images/growwith.jpg" alt="" class="img-fluid"> </div>
+                    <div class="growimg revealimage"> <img src="{{ STATIC_PUBLIC_URL_STORAGE }}{{$grow_with_us->image_path}}" alt="" class="img-fluid"> </div>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-6 col-12">
                     <div class="growdetail">
-                        <h3 data-aos="fade-up">Grow with us</h3>
-                        <p>Multidisciplinary teams with background in law, business, process, project management, technology, and more; built on a bedrock of Indian values and diverse perspectives</p>
+                        <h3 data-aos="fade-up">{{$grow_with_us->title ? $grow_with_us->title : 'Grow with us'}}</h3>
+                        <p>{{$grow_with_us->sub_text ? $grow_with_us->sub_text : ''}}</p>
                         <ul>
                             <li><a href="javascript:void(0);">View openings <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13" viewBox="0 0 27 13" fill="none">
@@ -668,8 +617,8 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="subscribebox connectpadd" data-aos="fade-up">
-                    <h4>Stay in the loop</h4>
-                    <p>Get access to our latest services, articles and events: </p>
+                    <h4>{{isset($stay_in_loop->title) && $stay_in_loop->title ? $stay_in_loop->title : 'Stay in the loop'}}</h4>
+                    <p>{{ isset($stay_in_loop->sub_text) && $stay_in_loop->sub_text ? $stay_in_loop->sub_text : 'Get access to our latest services, articles and events:'}} </p>
                     <form>
                         <div class="form-group">
                             <input type="email" name="" placeholder="Enter your email">
@@ -689,8 +638,8 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-12 connectlbr">
                 <div class="connectbox connectpadd" data-aos="fade-up">
-                    <h4>Connect with us</h4>
-                    <img src="{{ STATIC_PUBLIC_URL }}assets/images/scancode.png" alt="" class="img-fluid">
+                    <h4>{{isset($scancode->title) && $scancode->title ? $scancode->title : 'Connect with us'}}</h4>
+                    <img src="{{ STATIC_PUBLIC_URL_STORAGE }}{{isset($scancode->image_path) && $scancode->image_path ? $scancode->image_path : ''}}" alt="" class="img-fluid">
                     <p>Scan the QR code to get in<br>
                         touch with us</p>
                 </div>

@@ -8,7 +8,7 @@ class CmsBannerModel extends Model
 {
     protected $primaryKey = 'id';
     protected $table = 'cms_banner';
-    protected $fillable = array('id', 'title', 'image_path', 'image_path_mobile', 'sorting', 'type', 'link_url', 'sub_text', 'status', 'description');
+    protected $fillable = array('id', 'title', 'image_path', 'image_path_mobile', 'sorting', 'type', 'link_url', 'sub_text', 'status', 'description', 'date');
 
     public function brand_data()
     {

@@ -11,7 +11,7 @@
                 <div class="box-header">
 
                     <h3 class="box-title">Total <?php echo $data_rows->total(); ?> records.</h3> &nbsp;
-                    <!-- <a class="btn btn-primary" href="<?php echo Request::url(); ?>/new">Add new</a> &nbsp; -->
+                    <a class="btn btn-primary" href="<?php echo Request::url(); ?>/new">Add new</a> &nbsp;
                     <?php
                     $search_array = array();
                     $search_url = '';
@@ -68,9 +68,6 @@
                                             <input type="text" placeholder="Filter by Title" class="form-control nospecial  " id="title" name="title" placeholder="Title" value="<?php echo (isset($_GET['title'])) ? $_GET['title'] : ''; ?>">
                                         </div>
 
-
-
-
                                         <div class="col-xs-2">
                                             <label>Status</label>
                                             <select name="status" id="status" class="form-control nospecial  ">
@@ -85,12 +82,7 @@
                                             </select>
                                         </div>
 
-
-
-
                                         @include('admin.component.filter_date')
-
-
 
                                     </div>
                                 </div>
@@ -101,11 +93,6 @@
 
                 <!-- end field filter-->
 
-
-
-
-
-
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
@@ -114,15 +101,11 @@
                                 <th>ID</th>
                                 <th> Type</th>
                                 <th>Title</th>
-                                <th>Image</th>
-
+                                <th>Image/Video</th>
                                 <th>Sorting</th>
-
-
                                 <th>Status</th>
                                 <th>Created At</th>
                                 <th>UpdateD At</th>
-
                                 <th>Action</th>
 
                             </tr>
@@ -131,39 +114,36 @@
                             <tr>
                                 <td> {{ $data_row->id }}</td>
                                 <td>
-
                                     <?php if (isset(Config::get('constants.CONS_BANNER_TYPE_ARRAY')[$data_row->type])) {
 
                                         echo  Config::get('constants.CONS_BANNER_TYPE_ARRAY')[$data_row->type];
                                     }
                                     ?>
                                 </td>
-
-
-                                <td width="200px;"> {{ $data_row->title }}</td>
-
+                                <td width="200px;"> {{ $data_row->title ? $data_row->title : '-'}}</td>
                                 <td>
-
-                                    <?php if ($data_row['image_path']) { ?>
-
-                                        <a href="{{ STATIC_PUBLIC_URL_STORAGE }}<?= $data_row['image_path']; ?>" data-lightbox="{{ $data_row->id}}" data-title="Image">
-                                            <img src="{{ STATIC_PUBLIC_URL_STORAGE }}<?php echo $data_row['image_path']; ?>" height="70px">
-                                        </a>
-
-                                    <?php } ?>
+                                    <?php if (isset($data_row['image_path']) && $data_row['image_path'] != '') {
+                                        $video = strstr($data_row['image_path'], '.');
+                                        if ($video == '.mp4') {
+                                    ?>
+                                            <a target="_blank" href="{{ STATIC_PUBLIC_URL_STORAGE }}{{(isset($data_row->image_path))?$data_row->image_path:old('image_path') }}"> <img src="/assets/images/noun-video.svg" height="30px"></a>
+                                        <?php } else { ?>
+                                            <a href="{{ STATIC_PUBLIC_URL_STORAGE }}<?= $data_row['image_path']; ?>" data-lightbox="{{ $data_row->id}}" data-title="Image">
+                                                <img src="{{ STATIC_PUBLIC_URL_STORAGE }}<?php echo $data_row['image_path']; ?>" height="70px">
+                                            </a>
+                                    <?php }
+                                    } else {
+                                        echo '-';
+                                    } ?>
 
                                 </td>
-
-
 
                                 <td> {{ $data_row->sorting }}</td>
 
                                 <td><span class="label label-<?php echo ($data_row->status == '1') ? 'success' : 'danger'; ?>">
                                         {{ Config::get('constants.CONS_STATUS_ARRAY')[$data_row->status] }}</span></td>
                                 <td>{{ $data_row->created_at->format(DATE_FORMAT) }}</td>
-                                <td>{{ ($data_row->created_at==$data_row->updated_at)?'':$data_row->updated_at->format(DATE_FORMAT) }}</td>
-
-
+                                <td>{{ ($data_row->created_at==$data_row->updated_at)?'-':$data_row->updated_at->format(DATE_FORMAT) }}</td>
 
                                 <td>
                                     <a href="<?php echo Request::url(); ?>/view/<?php echo $data_row->id; ?>" class="btn bg-olive ">Edit</a>
