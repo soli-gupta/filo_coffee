@@ -46,7 +46,7 @@ $(document).ready(function () {
         dots: false,
         autoWidth: false,
         autoplay: 4000,
-        navText: ["<img src='./assets/images/slider-arrow-left.svg'>", "<img src='./assetsimages/slider-arrow-right.svg'>"],
+        navText: ["<img src='./assets/images/slider-arrow-left.svg'>", "<img src='./assets/images/slider-arrow-right.svg'>"],
         responsive: {
             0: {
                 items: 1,
@@ -67,7 +67,7 @@ $(document).ready(function () {
         dots: false,
         autoWidth: false,
         autoplay: 4000,
-        navText: ["<img src='images/slider-arrow-left.svg'>", "<img src='images/slider-arrow-right.svg'>"],
+        navText: ["<img src='./assets/images/slider-arrow-left.svg'>", "<img src='./assets/images/slider-arrow-right.svg'>"],
         responsive: {
             0: {
                 items: 2,
@@ -115,6 +115,40 @@ $(document).ready(function () {
         });
     });
     // Home page banner slick function start
+
+    // Home service slider
+    const slider = $(".serviceslider");
+    // Slider Main Settings
+    slider
+        .slick({
+            dots: false,
+            arrows: false,
+            vertical: true,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            settings: {
+                dots: false,
+                arrows: false,
+                infinite: false,
+                slidesToShow: 1,
+                slidesToScroll: 3
+            }
+        });
+
+
+    // Vertical Mouse Scroll
+    slider.on('wheel', (function (e) {
+        e.preventDefault();
+
+        if (e.originalEvent.deltaY < 0) {
+            $(this).slick('slickNext');
+        } else {
+            $(this).slick('slickPrev');
+        }
+    }));
+
+    // Home service slider
 
 
     //Custom Marquee function start

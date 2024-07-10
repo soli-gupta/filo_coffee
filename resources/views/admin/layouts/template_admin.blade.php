@@ -152,6 +152,26 @@
                             </li>
                             @endif
 
+                            <li class="<?php echo ($page_name == 'sectors' || $page_name == 'services' || $page_name == 'practices') ? 'active' : '' ?> dropdown">
+
+
+                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Expertise <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+
+                                    <li class="<?php echo ($page_name == 'sectors') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/sectors"> <span>Sectors</span></a>
+                                    </li>
+
+                                    @if(in_array('services',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'services') ? 'active' : '' ?>"><a href="<?php echo ADMIN_URL; ?>/services"><span>Services</span></a></li>
+                                    @endif
+
+                                    @if(in_array('practices',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'practices') ? 'active' : '' ?>"><a href="<?php echo ADMIN_URL; ?>/practices"><span>Practices</span></a></li>
+                                    @endif
+                                </ul>
+                            </li>
+
                             <li class=" <?php echo (in_array($page_name, array('cms-page', 'cms-block', 'cms-banner'))) ? 'active' : ''; ?>
                         dropdown">
 

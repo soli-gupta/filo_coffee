@@ -5,7 +5,7 @@
         <div class="customcontainer">
             <div class="commonbreadcum">
                 <ul>
-                    <li><a href="javascript:void(0);">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="javascript:void(0);">Careers</a></li>
                 </ul>
             </div>
@@ -28,7 +28,7 @@
     <div class="container">
         <div class="customcontainer">
             <div class="commoninnerimg revealimage">
-                <img src="images/careers.jpg" alt="" class="img-fluid w-100">
+                <img src="{{ STATIC_PUBLIC_URL }}assets/images/careers.jpg" alt="" class="img-fluid w-100">
             </div>
         </div>
     </div>

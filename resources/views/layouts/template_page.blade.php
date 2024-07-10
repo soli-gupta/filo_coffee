@@ -18,6 +18,7 @@
     <link href="{{ STATIC_PUBLIC_URL }}assets/css/owl.carousel.min.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_PUBLIC_URL }}assets/css/slick.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_PUBLIC_URL }}assets/css/slick-theme.css" />
+    <link href="{{ STATIC_PUBLIC_URL }}assets/css/manufacturing.css" rel="stylesheet" type="text/css" media="all" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="{{ STATIC_PUBLIC_URL }}assets/css/main.css" rel="stylesheet" type="text/css" media="all" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -51,7 +52,6 @@
                                     <div class="accordion-content">
                                         <ul class="">
                                             <li><a href="javascript:void(0);">Insights</a></li>
-                                            <li><a href="javascript:void(0);">Insights</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -69,14 +69,21 @@
     <header class="header">
         <div class="container">
             <div class="menu-flex">
-                <div class="logo"> <a href="index.html" title="LKS"> <img src="{{ STATIC_PUBLIC_URL }}assets/images/logo.svg" width="220" alt="" /> </a> </div>
+                <div class="logo"> <a href="/" title="LKS"> <img src="{{ STATIC_PUBLIC_URL }}assets/images/logo.svg" width="220" alt="" /> </a> </div>
                 <a href="javascript:void(0);" class="desktophide mobilesearchicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/search_icon.svg" alt="" title="" class="img-fluid"></a> <a id="slide" class="float-left"><i class=""><img src="{{ STATIC_PUBLIC_URL }}assets/images/menu-icon.svg" alt="LKS" width="35" /></i></a>
                 <div class="header-links mobilenone">
                     <ul>
                         <li><a href="javascript:void(0);">Insights <span class="dropdownicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/arrowdown_icon.svg" alt="" title="" class="img-fluid"></span></a>
-
+                            <ul class="mainsubnav">
+                                <li><a href="javascript:void(0);">Articles</a></li>
+                                <li><a href="javascript:void(0);">Blogs</a></li>
+                                <li><a href="javascript:void(0);">Press Release</a></li>
+                                <li><a href="javascript:void(0);">Events</a></li>
+                                <li><a href="javascript:void(0);">Newsletters</a></li>
+                                <li><a href="javascript:void(0);">Monographs</a></li>
+                            </ul>
                         </li>
-                        <li><a href="people.html">People</a></li>
+                        <li><a href="{{route('people')}}">People</a></li>
                         <li><a href="javascript:void(0);">Expertise <span class="dropdownicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/arrowdown_icon.svg" alt="" title="" class="img-fluid"></span></a>
                             <div class="megamenu">
                                 <div class="container">
@@ -143,9 +150,23 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="javascript:void(0);">About Us <span class="dropdownicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/arrowdown_icon.svg" alt="" title="" class="img-fluid"></span></a></li>
-                        <li><a href="career.html">Grow With Us <span class="dropdownicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/arrowdown_icon.svg" alt="" title="" class="img-fluid"></span></a></li>
-                        <li><a href="javascript:void(0);"><img src="{{ STATIC_PUBLIC_URL }}assets/images/search_icon.svg" alt="" title="" class="img-fluid"></a></li>
+                        <li><a href="javascript:void(0);">About Us <span class="dropdownicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/arrowdown_icon.svg" alt="" title="" class="img-fluid"></span></a>
+                            <ul class="mainsubnav">
+                                <li><a href="{{route('who-we-are')}}">Who we are</a></li>
+                                <li><a href="javascript:void(0);">Our History</a></li>
+                                <li><a href="{{ route('our-values')}}">Our Values</a></li>
+                                <li><a href="{{ route('awards')}}">Our Awards </a></li>
+                                <li><a href="javascript:void(0);">Testimonials</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);">Grow With Us <span class="dropdownicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/arrowdown_icon.svg" alt="" title="" class="img-fluid"></span></a>
+                            <ul class="mainsubnav">
+                                <li><a href="{{ route('career')}}">Careers</a></li>
+                                <li><a href="javascript:void(0);">LKS Internships</a></li>
+                                <li><a href="javascript:void(0);">Life at LKS</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#mainsearch"><img src="{{ STATIC_PUBLIC_URL }}assets/images/search_icon.svg" alt="" title="" class="img-fluid"></a></li>
                     </ul>
                 </div>
             </div>
@@ -305,7 +326,7 @@
                         <div class="col-lg-7 col-md-7 col-sm-7 col-12">
                             <div class="footermiddleleft">
                                 <img src="{{ STATIC_PUBLIC_URL }}assets/images/logo.svg" width="190" alt="" class="footerlogo mobilenone img-fluid">
-                                <div class="phonetab"> <a href="javascript:void(0);"><img src="images/call.svg" alt="" class="img-fluid"> +91 11 41299800</a>
+                                <div class="phonetab"> <a href="javascript:void(0);"><img src="{{ STATIC_PUBLIC_URL }}assets/images/call.svg" alt="" class="img-fluid"> +91 11 41299800</a>
                                     <a href="javascript:void(0);"><img src="{{ STATIC_PUBLIC_URL }}assets/images/email.svg" alt="" class="img-fluid"> info@lakshmisri.com</a>
                                 </div>
                             </div>
@@ -313,9 +334,9 @@
                         <div class="col-lg-5 col-md-5 col-sm-5 col-12">
                             <div class="footermiddlesocial">
                                 <ul>
-                                    <li><a href="https://www.linkedin.com/company/lakshmikumaran-and-sridharan/" target="_blank"><img src="images/linkedin.svg" alt="" class="img-fluid"></a></li>
-                                    <li><a href="https://www.facebook.com/lsipr" target="_blank"><img src="images/facebook.svg" alt="" class="img-fluid"></a></li>
-                                    <li><a href="https://twitter.com/LKSattorneys" target="_blank"><img src="images/twitter.svg" alt="" class="img-fluid"></a></li>
+                                    <li><a href="https://www.linkedin.com/company/lakshmikumaran-and-sridharan/" target="_blank"><img src="{{ STATIC_PUBLIC_URL }}assets/images/linkedin.svg" alt="" class="img-fluid"></a></li>
+                                    <li><a href="https://www.facebook.com/lsipr" target="_blank"><img src="{{ STATIC_PUBLIC_URL }}assets/images/facebook.svg" alt="" class="img-fluid"></a></li>
+                                    <li><a href="https://twitter.com/LKSattorneys" target="_blank"><img src="{{ STATIC_PUBLIC_URL }}assets/images/twitter.svg" alt="" class="img-fluid"></a></li>
                                 </ul>
                             </div>
                         </div>
