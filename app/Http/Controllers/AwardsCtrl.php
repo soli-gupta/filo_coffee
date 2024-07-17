@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\AwardsModel;
 use Illuminate\Http\Request;
 use App\CmspageModel;
-use App\CmsBannerModel;
-use DB;
+use App\LeadershipModel;
 
 class AwardsCtrl extends Controller
 {
     public function index()
     {
 
+        $peoples = LeadershipModel::where('status', 1)->orderBy('id', 'desc');
+        $peoples = LeadershipModel::getFilterPeople($peoples);
+        $peoples = $peoples->get();
+
         $pageData = CmspageModel::where('slug', 'awards')->first();
+        $years = AwardsModel::getYears();
+        $awards = AwardsModel::where('status', 1)->orderBy('year', 'desc')->get()->groupBy('year');;
         if ($pageData) {
             $page_array = [
                 'id' => 'awards',
@@ -30,7 +36,9 @@ class AwardsCtrl extends Controller
                 'meta_other' => $pageData->meta_other,
                 'image_alt' => $pageData->image_alt,
                 'parent_slug' => 'awards',
-
+                'years' => $years,
+                'awards' => $awards,
+                'peoples' => $peoples
             ];
         } else {
             return CmspageCtrl::pageNotFound();

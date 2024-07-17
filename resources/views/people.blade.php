@@ -123,7 +123,7 @@ $leader_pratice = request('practice') ? request('practice') : '';
                             <div class="keypeopleimg">
                                 <img src="{{ STATIC_PUBLIC_URL_STORAGE }}{{$people->image}}" alt="" title="" class="img-fluid">
                                 <div class="keypeoplebtn">
-                                    <a href="">View Profile</a>
+                                    <a href="/people-details/{{$people->slug}}">View Profile</a>
                                 </div>
                             </div>
                             <div class="keypeopleboxdet">

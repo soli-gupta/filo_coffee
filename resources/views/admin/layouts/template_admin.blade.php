@@ -113,48 +113,92 @@
                         </button>
                     </div>
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li class="<?php echo ($page_name == 'dashboard') ? 'active' : '' ?>">
                                 <a href="<?php echo ADMIN_URL; ?>/dashboard"><span>Dashboard</span></a>
                             </li>
 
-                            @if(in_array('product',$admin_modules_array) || in_array('product-category',$admin_modules_array) ||
-                            in_array('all-modules',$admin_modules_array))
-
-                            <li class="<?php echo ($page_name == 'product-category' ||  $page_name == 'product') ? 'active' : '' ?> dropdown">
-
-
-                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Product<span class="caret"></span></a>
+                            <li class="<?php echo ($page_name == 'leadership') ? 'active' : '' ?> dropdown">
+                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Home <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
 
+                                    <li class="<?php echo ($page_name == 'cms-page') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/cms-page/edit/1"> <span>Home Page</span></a>
+                                    </li>
 
-
-                                    @if(in_array('product-category',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
-                                    <li class="<?php echo ($page_name == 'product-category') ? 'active' : '' ?>">
-                                        <a href="<?php echo ADMIN_URL; ?>/product-category"> <span>Product Category</span></a>
+                                    @if(in_array('cms-banner',$admin_modules_array) ||
+                                    in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'cms-banner') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/cms-banner"> <span>Home Page Content</span></a>
                                     </li>
                                     @endif
 
-                                    @if(in_array('product-sub-category',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
-                                    <li class="<?php echo ($page_name == 'product-sub-category') ? 'active' : '' ?>">
-                                        <a href="<?php echo ADMIN_URL; ?>/product-sub-category"> <span>Product Sub Category</span></a>
+                                </ul>
+                            </li>
+
+
+                            @if(in_array('product',$admin_modules_array) || in_array('articles',$admin_modules_array) ||
+                            in_array('all-modules',$admin_modules_array))
+
+                            <li class="<?php echo ($page_name == 'articles' ||  $page_name == 'blog-post' || $page_name == 'leadership') ? 'active' : '' ?> dropdown">
+                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Insights<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    @if(in_array('articles',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'articles') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/articles"> <span>Articles</span></a>
                                     </li>
                                     @endif
 
-                                    @if(in_array('product',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
-                                    <li class="<?php echo ($page_name == 'product') ? 'active' : '' ?>">
-                                        <a href="<?php echo ADMIN_URL; ?>/product"> <span>Product</span></a>
+                                    @if(in_array('blog-post',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'blog-post') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/blog-post"> <span>Blogs</span></a>
+                                    </li>
+                                    @endif
+
+                                    @if(in_array('press-release',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'press-release') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/press-release"> <span>Press Release</span></a>
+                                    </li>
+                                    @endif
+
+                                    @if(in_array('events',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'events') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/events"> <span>Events</span></a>
+                                    </li>
+                                    @endif
+
+                                    @if(in_array('news-letters',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'news-letters') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/news-letters"> <span>Newsletters</span></a>
+                                    </li>
+                                    @endif
+
+                                    @if(in_array('monographs',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'monographs') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/monographs"> <span>Monographs</span></a>
                                     </li>
                                     @endif
                                 </ul>
                             </li>
                             @endif
 
+                            <li class="<?php echo ($page_name == 'leadership') ? 'active' : '' ?> dropdown">
+                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">People <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+
+                                    <li class="<?php echo ($page_name == 'cms-page') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/cms-page/edit/4"> <span>People Page</span></a>
+                                    </li>
+
+                                    @if(in_array('leadership',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'leadership') ? 'active' : '' ?>"><a href="<?php echo ADMIN_URL; ?>/leadership"><span>People Data</span></a></li>
+                                    @endif
+
+                                </ul>
+                            </li>
+
                             <li class="<?php echo ($page_name == 'sectors' || $page_name == 'services' || $page_name == 'practices') ? 'active' : '' ?> dropdown">
-
-
                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Expertise <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
 
@@ -173,6 +217,43 @@
                             </li>
 
                             <li class=" <?php echo (in_array($page_name, array('cms-page', 'cms-block', 'cms-banner'))) ? 'active' : ''; ?>
+                        dropdown">
+
+                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">About Us<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+
+                                    @if(in_array('cms-page',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'cms-page') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/cms-page/edit/10">
+                                            <span>Who We are</span></a>
+                                    </li>
+                                    @endif
+
+                                    @if(in_array('cms-banner',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'our-history') ? 'active' : '' ?>">
+                                        <a href="javascript:void(0);"> <span>Our History</span></a>
+                                    </li>
+                                    @endif
+
+
+                                    @if(in_array('our-values',$admin_modules_array) ||
+                                    in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'our-value') ? 'active' : '' ?>">
+                                        <a href="<?php echo ADMIN_URL; ?>/cms-page/edit/9"> <span>Our Values</span></a>
+                                    </li>
+                                    @endif
+
+                                    @if(in_array('testimonials',$admin_modules_array) || in_array('all-modules',$admin_modules_array))
+                                    <li class="<?php echo ($page_name == 'testimonials') ? 'active' : '' ?>">
+                                        <a href="javascript:void(0);"> <span>Testimonials</span></a>
+                                    </li>
+                                    @endif
+
+
+                                </ul>
+                            </li>
+
+                            <!-- <li class=" <?php echo (in_array($page_name, array('cms-page', 'cms-block', 'cms-banner'))) ? 'active' : ''; ?>
                         dropdown">
 
                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">General<span class="caret"></span></a>
@@ -200,8 +281,8 @@
                                     @endif
 
                                 </ul>
-                            </li>
-                            <li class="<?php echo ($page_name == 'setting' || $page_name == 'profile' || $page_name == 'admin-user' || $page_name == 'redirect-url') ? 'active' : '' ?> dropdown">
+                            </li> -->
+                            <!-- <li class="<?php echo ($page_name == 'setting' || $page_name == 'profile' || $page_name == 'admin-user' || $page_name == 'redirect-url') ? 'active' : '' ?> dropdown">
 
 
                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">System<span class="caret"></span></a>
@@ -226,13 +307,14 @@
                                     @endif
 
                                 </ul>
-                            </li>
+                            </li> -->
 
                             <li><a href="<?php echo url('/'); ?>" target="_blank"><span>Front Website</span></a></li>
 
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
+
                     <!-- Navbar Right Menu -->
 
                     <div class="navbar-custom-menu">
@@ -241,9 +323,8 @@
                             <li class="dropdown user user-menu">
                                 <!-- Menu Toggle Button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <!-- The user image in the navbar-->
                                     <img src="{{ URL::asset('assets/admin')}}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                    <!-- hidden-xs hides the username on small devices so only the image appears. -->
+
                                     <span class="hidden-xs">
                                         <?php echo Auth::user()->name; ?>
                                     </span>

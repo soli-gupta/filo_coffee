@@ -83,6 +83,7 @@ Route::group(array('namespace' => 'Admin'), function () {
     Route::get('locations/new/', 'LocationCtrlAdmin@add', array());
     Route::post('locations/massaction', 'LocationCtrlAdmin@massaction');
 
+
     // Leadership AdminController
     Route::get('leadership', 'LeadershipCtrlAdmin@index', array());
     Route::get('leadership/view/{id}', 'LeadershipCtrlAdmin@view', array());
@@ -90,6 +91,20 @@ Route::group(array('namespace' => 'Admin'), function () {
     Route::post('leadership/save', 'LeadershipCtrlAdmin@save');
     Route::get('leadership/export', 'LeadershipCtrlAdmin@export');
 
+    // Our Value Service Controller
+    Route::get('our-value-services', 'OurValueServiceCtrlAdmin@index', array());
+    Route::get('our-value-services/view/{id}', 'OurValueServiceCtrlAdmin@view', array());
+    Route::post('our-value-services/save', 'OurValueServiceCtrlAdmin@save');
+    Route::get('our-value-services/export', 'OurValueServiceCtrlAdmin@export');
+    Route::get('our-value-services/new/', 'OurValueServiceCtrlAdmin@add', array());
+    Route::post('our-value-services/massaction', 'OurValueServiceCtrlAdmin@massaction');
+
+    // Awards AdminController
+    Route::get('awards', 'AwardsCtrlAdmin@index', array());
+    Route::get('awards/view/{id}', 'AwardsCtrlAdmin@view', array());
+    Route::get('awards/new', 'AwardsCtrlAdmin@add');
+    Route::post('awards/save', 'AwardsCtrlAdmin@save');
+    Route::get('awards/export', 'AwardsCtrlAdmin@export');
 
     // section MediaGallery
     Route::get('/media-gallery', 'MediaGalleryCtrlAdmin@index', array());
@@ -130,7 +145,19 @@ Route::group(array('namespace' => 'Admin'), function () {
     Route::post('product/massaction', 'ProductCtrlAdmin@massaction');
     Route::post('product/dataupload', 'ProductCtrlAdmin@dataupload');
 
+    // Blog Controller
+    Route::get('blog-post', 'BlogPostCtrlAdmin@index', array());
+    Route::get('blog-post/view/{id}', 'BlogPostCtrlAdmin@view', array());
+    Route::get('blog-post/new', 'BlogPostCtrlAdmin@add');
+    Route::post('blog-post/save', 'BlogPostCtrlAdmin@save');
+    Route::get('blog-post/export', 'BlogPostCtrlAdmin@export');
 
+    //
+    Route::get('articles', 'ArticlesCtrlAdmin@index', array());
+    Route::get('articles/view/{id}', 'ArticlesCtrlAdmin@view', array());
+    Route::get('articles/new', 'ArticlesCtrlAdmin@add');
+    Route::post('articles/save', 'ArticlesCtrlAdmin@save');
+    Route::get('articles/export', 'ArticlesCtrlAdmin@export');
 
     // product category
     Route::get('product-category', 'ProductCategoryCtrlAdmin@index', array());

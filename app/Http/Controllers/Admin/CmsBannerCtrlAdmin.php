@@ -27,10 +27,6 @@ class CmsBannerCtrlAdmin extends Controller
     $this->name_url_folder = 'cms-banner';
   }
 
-
-
-
-
   public function roleChecking()
   {
 
@@ -58,9 +54,6 @@ class CmsBannerCtrlAdmin extends Controller
         $data_rows->where('title', 'LIKE', "%{$GET_DATA['title']}%");
       }
 
-
-
-
       if ($GET_DATA['status']) {
         $data_rows->where('status', $GET_DATA['status']);
       }
@@ -81,17 +74,10 @@ class CmsBannerCtrlAdmin extends Controller
     return $data_rows;
   }
 
-
-
-
-
-
   public function index()
   {
 
     $this->roleChecking();
-
-
     $GET_DATA = Input::input();
 
     if (isset($GET_DATA['delete'])) {
@@ -112,8 +98,6 @@ class CmsBannerCtrlAdmin extends Controller
       return redirect(ADMIN_FOLDER . '/' . $this->name_url_folder)->with($message_type, $message_text);
     }
 
-
-
     $data_rows = CmsBannerModel::orderBy('id', 'desc');
     $data_rows = $this->getFilter($data_rows);
     $data_rows = $data_rows->paginate(PAGINATE_LIMIT);
@@ -127,11 +111,6 @@ class CmsBannerCtrlAdmin extends Controller
     //return view('admin.pages.pages',$page_array); 
     return view('admin.' . $this->name_url_folder . '.index', $page_array);
   }
-
-
-
-
-
   public function view($id)
   {
 

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\OurValueServicesModel;
 use Illuminate\Http\Request;
 use App\CmspageModel;
 use App\CmsBannerModel;
+use App\LeadershipModel;
 use DB;
 
 class OurValuesCtrl extends Controller
@@ -13,6 +15,12 @@ class OurValuesCtrl extends Controller
     {
 
         $pageData = CmspageModel::where('slug', 'our-value')->first();
+
+        $peoples = LeadershipModel::where('status', 1)->orderBy('id', 'desc');
+        $peoples = LeadershipModel::getFilterPeople($peoples);
+        $peoples = $peoples->get();
+
+        $ourValueServices = OurValueServicesModel::where('status', 1)->orderBy('sorting', 'asc')->get();
         if ($pageData) {
             $page_array = [
                 'id' => 'our-value',
@@ -30,6 +38,8 @@ class OurValuesCtrl extends Controller
                 'meta_other' => $pageData->meta_other,
                 'image_alt' => $pageData->image_alt,
                 'parent_slug' => 'our-value',
+                'peoples' => $peoples,
+                'ourValueServices' => $ourValueServices
 
             ];
         } else {
