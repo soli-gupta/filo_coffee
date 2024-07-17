@@ -10,11 +10,18 @@ Route::get('testpage', 'TestpageCtrl@testpage', array());
 Route::get('people', 'PeopleCtrl@index', array())->name('people');
 Route::get('career', 'CareerCtrl@index', array())->name('career');
 Route::get('awards', 'AwardsCtrl@index', array())->name('awards');
-Route::get('advisory', 'AdvisoryCtrl@index', array())->name('advisory');
-Route::get('direct-tax', 'DirectTaxCtrl@index', array())->name('direct-tax');
+
 Route::get('our-value', 'OurValuesCtrl@index', array())->name('our-values');
 Route::get('who-we-are', 'WhoWeAreCtrl@index', array())->name('who-we-are');
-Route::get('manufacturing', 'ManufacturingCtrl@index', array())->name('manufacturing');
+
+// All Sectors Route
+Route::get('{sector_slug}', 'SerctorsCtrl@index', array())->name('sectors');
+
+// All Services Route
+Route::get('advisory', 'AdvisoryCtrl@index', array())->name('advisory');
+
+// All Practices Route
+Route::get('{practices_slug}', 'DirectTaxCtrl@index', array())->name('practices');
 
 Route::group(array('namespace' => 'Admin'), function () {
 
@@ -42,7 +49,7 @@ Route::group(array('namespace' => 'Admin'), function () {
     Route::get('cms-page/export', 'CmspageCtrlAdmin@export');
 
 
-    // section cms banner module
+    // cms banner module
     Route::get('/cms-banner', 'CmsBannerCtrlAdmin@index', array());
     Route::get('/cms-banner/view/{id}', 'CmsBannerCtrlAdmin@view', array());
     Route::get('cms-banner/new', 'CmsBannerCtrlAdmin@add');
@@ -57,6 +64,12 @@ Route::group(array('namespace' => 'Admin'), function () {
     Route::get('sectors/export', 'SectorCtrlAdmin@export');
     Route::get('sectors/new/', 'SectorCtrlAdmin@add', array());
     Route::post('sectors/massaction', 'SectorCtrlAdmin@massaction');
+
+    // Sector Services Template Module
+    Route::get('/sectors-services', 'SectorServicesCtrlAdmin@index', array());
+    Route::get('/sectors-services/view/{id}', 'SectorServicesCtrlAdmin@view', array());
+    Route::get('sectors-services/new/{id}', 'SectorServicesCtrlAdmin@add');
+    Route::post('sectors-services/save', 'SectorServicesCtrlAdmin@save');
 
     // Services  module Route
     Route::get('services', 'ServicesCtrlAdmin@index', array());

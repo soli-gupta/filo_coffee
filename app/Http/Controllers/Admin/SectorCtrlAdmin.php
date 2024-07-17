@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin; //admin add
 
 
 use App\Http\Controllers\Controller; // using controller class
+use App\SectorServiceModel;
 use Illuminate\Support\Facades\Auth;
 use App\SectorModel;
 use Illuminate\Http\Request;
+use App\CmsBlockModel;
 use Illuminate\Support\Facades\DB;
 
 class SectorCtrlAdmin extends Controller
@@ -144,15 +146,15 @@ class SectorCtrlAdmin extends Controller
     public function view($id)
     {
 
-        $attributes = SectorModel::get();
         $this->roleChecking();
         $data = SectorModel::where('id', $id)->first();
+        $sectorServices = SectorServiceModel::where('sector_id', $id)->get();
         if ($data) {
             $page_array = array(
                 'title' => 'Edit - ' . $data->name,
                 'page_name' => $this->name_url_folder,
                 'data_row' => $data,
-                'attributes' => $attributes,
+                'sectorServices' => $sectorServices
 
             );
             //return view('admin.pages.view',$page_array); 
@@ -195,10 +197,14 @@ class SectorCtrlAdmin extends Controller
             return redirect(ADMIN_FOLDER . '/' . $this->name_url_folder)->with($message_type, $message_text);
         }
 
-
-
         $array_validate = array();
         $array_validate['name'] = "required";
+
+        if ($id) {
+            $array_validate['slug'] = "required|unique:sectors,slug,$id";
+        } else {
+            $array_validate['slug'] = "required|unique:sectors|max:255";
+        }
 
         $this->validate($request, $array_validate);
 
@@ -206,12 +212,29 @@ class SectorCtrlAdmin extends Controller
         $message_text = "Some error!";
 
         try {
+            $uploadedIcon = $request->file('image1');
+            if ($uploadedIcon) {
+                $destinationPath = 'media/sectors/image1/';
+                $POST_DATA['image1'] = CmsBlockModel::uploadFile($uploadedIcon, $destinationPath);
+            } else {
+                if (isset($POST_DATA['image1_delete'])) {
+                    $POST_DATA['image1'] = '';
+                }
+            }
+
+            $uploadedFile = $request->file('image2');
+            if ($uploadedFile) {
+                $destinationPath = 'media/sectors/image2/';
+                $POST_DATA['image2'] = CmsBlockModel::uploadFile($uploadedFile, $destinationPath);
+            } else {
+                if (isset($POST_DATA['image2_delete'])) {
+                    $POST_DATA['image2'] = '';
+                }
+            }
 
             if ($id == '') {
                 $save = SectorModel::create($POST_DATA);
             } else {
-
-
                 $save = SectorModel::find($id);
                 $save->fill($POST_DATA);
             }
@@ -255,13 +278,12 @@ class SectorCtrlAdmin extends Controller
         if (count($data_rows) > 0) {
             $tot_record_found = 1;
 
-            $export_data = "Id,Attribute,Sorting,Date,UpdatedAt \n";
+            $export_data = "Id,Name,Slug,Sorting,Date,UpdatedAt \n";
             foreach ($data_rows as $value) {
                 $export_data .= '"' . $value->id . '",';
                 $export_data .= '"' . $value->name . '",';
-
+                $export_data .= '"' . $value->slug . '",';
                 $export_data .= '"' . $value->sorting . '",';
-
                 $export_data .= '"' . $value->created_at . '",';
                 $export_data .= '"' . $value->updated_at . '",';
                 $export_data .= "\r\n";
