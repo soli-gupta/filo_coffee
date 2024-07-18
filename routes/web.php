@@ -15,13 +15,13 @@ Route::get('our-value', 'OurValuesCtrl@index', array())->name('our-values');
 Route::get('who-we-are', 'WhoWeAreCtrl@index', array())->name('who-we-are');
 
 // All Sectors Route
-Route::get('{sector_slug}', 'SerctorsCtrl@index', array())->name('sectors');
+Route::get('sector/{sector_slug}', 'SerctorsCtrl@index', array())->name('sectors');
 
 // All Services Route
-Route::get('advisory', 'AdvisoryCtrl@index', array())->name('advisory');
+Route::get('service/{service_slug}', 'AdvisoryCtrl@index', array());
 
 // All Practices Route
-Route::get('{practices_slug}', 'DirectTaxCtrl@index', array())->name('practices');
+Route::get('practice/{practice_slug}', 'DirectTaxCtrl@index', array())->name('practices');
 
 Route::group(array('namespace' => 'Admin'), function () {
 

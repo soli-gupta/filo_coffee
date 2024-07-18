@@ -1,10 +1,11 @@
 $(document).ready(function () {
     $('.homebannerslider').owlCarousel({
-        loop: false,
+        loop: true,
         margin: 30,
         nav: false,
         dots: true,
         autoWidth: false,
+        autoplay: 4000,
         // navText: ["<img src='images/arrowleft.svg'>","<img src='images/arrowright.svg'>"],
         responsive: {
             0: {
@@ -61,7 +62,7 @@ $(document).ready(function () {
     });
 
     $('.keypeopleslider').owlCarousel({
-        loop: true,
+        loop: false,
         margin: 75,
         nav: true,
         dots: false,
@@ -108,7 +109,7 @@ $(document).ready(function () {
         $(".bannerslidernew").slick({
             dots: true,
             infinite: true,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 4000,
             slidesToShow: 1,
             slidesToScroll: 1
@@ -126,7 +127,7 @@ $(document).ready(function () {
             vertical: true,
             infinite: true,
             autoplay: true,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 5000,
             settings: {
                 dots: false,
                 arrows: false,

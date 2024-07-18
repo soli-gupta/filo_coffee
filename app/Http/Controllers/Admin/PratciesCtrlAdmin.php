@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Admin; //admin add
 use App\Http\Controllers\Controller; // using controller class
 use Illuminate\Support\Facades\Auth;
 use App\PratcieModel;
+use App\CmsBlockModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -200,6 +201,11 @@ class PratciesCtrlAdmin extends Controller
         $array_validate = array();
         $array_validate['name'] = "required";
 
+        if ($id) {
+            $array_validate['slug'] = "required|unique:services,slug,$id";
+        } else {
+            $array_validate['slug'] = "required|unique:services|max:255";
+        }
         $this->validate($request, $array_validate);
 
         $message_type = "message_error";
@@ -207,11 +213,19 @@ class PratciesCtrlAdmin extends Controller
 
         try {
 
+            $uploadedIcon = $request->file('image');
+            if ($uploadedIcon) {
+                $destinationPath = 'media/practices/image/';
+                $POST_DATA['image'] = CmsBlockModel::uploadFile($uploadedIcon, $destinationPath);
+            } else {
+                if (isset($POST_DATA['image_delete'])) {
+                    $POST_DATA['image'] = '';
+                }
+            }
+
             if ($id == '') {
                 $save = PratcieModel::create($POST_DATA);
             } else {
-
-
                 $save = PratcieModel::find($id);
                 $save->fill($POST_DATA);
             }

@@ -3,34 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\CmspageModel;
-use App\CmsBannerModel;
+use App\LeadershipModel;
+use App\PratcieModel;
 use DB;
 
 class DirectTaxCtrl extends Controller
 {
-    public function index()
+    public function index($slug)
     {
+        $pageData = PratcieModel::where('slug', $slug)->first();
 
-        $pageData = CmspageModel::where('slug', 'direct-tax')->first();
+        $peoples = LeadershipModel::where('status', 1)->orderBy('id', 'desc');
+        $peoples = LeadershipModel::getFilterPeople($peoples);
+        $peoples = $peoples->get();
+
         if ($pageData) {
+
             $page_array = [
-                'id' => 'direct-tax',
+                'id' => $pageData->$slug,
                 'name' => $pageData->name,
+                'slug' => $pageData->slug,
                 'sub_text' => $pageData->sub_text,
+                'description' => $pageData->description,
+                'feature_content' => $pageData->feature_content,
+                'image' => $pageData->image,
                 'title' => $pageData->page_title ? $pageData->page_title : $pageData->name,
                 'meta_keywords' => $pageData->meta_keywords,
                 'meta_description' => $pageData->meta_description,
-                'slug' => $pageData->slug,
-                'content' => $pageData->content1,
-                'content2' => $pageData->content2,
-                'image' => $pageData->image,
-                'image_mobile' => $pageData->image_mobile,
-                'body_class' => 'direct-tax',
+                'body_class' => $pageData->$slug,
                 'meta_other' => $pageData->meta_other,
                 'image_alt' => $pageData->image_alt,
-                'parent_slug' => 'direct-tax',
-
+                'parent_slug' => $pageData->$slug,
+                'peoples' => $peoples
             ];
         } else {
             return CmspageCtrl::pageNotFound();

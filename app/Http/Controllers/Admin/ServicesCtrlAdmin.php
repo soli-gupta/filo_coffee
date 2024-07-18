@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller; // using controller class
 use Illuminate\Support\Facades\Auth;
 use App\ServicesModel;
 use Illuminate\Http\Request;
+use App\CmsBlockModel;
 use Illuminate\Support\Facades\DB;
 
 class ServicesCtrlAdmin extends Controller
@@ -147,12 +148,15 @@ class ServicesCtrlAdmin extends Controller
         $attributes = ServicesModel::get();
         $this->roleChecking();
         $data = ServicesModel::where('id', $id)->first();
+        $advisory_services = json_decode($data->why_lks, true) ?: [];
+
         if ($data) {
             $page_array = array(
                 'title' => 'Edit - ' . $data->name,
                 'page_name' => $this->name_url_folder,
                 'data_row' => $data,
                 'attributes' => $attributes,
+                'advisory_services' => $advisory_services
 
             );
             //return view('admin.pages.view',$page_array); 
@@ -167,11 +171,13 @@ class ServicesCtrlAdmin extends Controller
 
         $attributes = ServicesModel::get();
         $data = array();
+        $advisory_services = [];
         $page_array = array(
-            'title' => 'Add Sector',
+            'title' => 'Add Service',
             'page_name' => $this->name_url_folder,
             'data_row' => $data,
             'attributes' => $attributes,
+            'advisory_services' => $advisory_services
 
         );
         return view('admin.' . $this->name_url_folder . '.view', $page_array);
@@ -180,6 +186,8 @@ class ServicesCtrlAdmin extends Controller
     {
         $POST_DATA = $request->input();
 
+        //echo (explode(',', $request->input('why_lks')));
+        //die();
         $this->roleChecking();
 
         $id = '';
@@ -200,6 +208,12 @@ class ServicesCtrlAdmin extends Controller
         $array_validate = array();
         $array_validate['name'] = "required";
 
+        if ($id) {
+            $array_validate['slug'] = "required|unique:services,slug,$id";
+        } else {
+            $array_validate['slug'] = "required|unique:services|max:255";
+        }
+
         $this->validate($request, $array_validate);
 
         $message_type = "message_error";
@@ -207,16 +221,25 @@ class ServicesCtrlAdmin extends Controller
 
         try {
 
+            //if ($request->why_lks) {
+            $POST_DATA['why_lks'] = json_encode($request->input('why_lks'));
+            // }
+            $uploadedIcon = $request->file('image');
+            if ($uploadedIcon) {
+                $destinationPath = 'media/servcies/image/';
+                $POST_DATA['image'] = CmsBlockModel::uploadFile($uploadedIcon, $destinationPath);
+            } else {
+                if (isset($POST_DATA['image_delete'])) {
+                    $POST_DATA['image'] = '';
+                }
+            }
+
             if ($id == '') {
                 $save = ServicesModel::create($POST_DATA);
             } else {
-
-
                 $save = ServicesModel::find($id);
                 $save->fill($POST_DATA);
             }
-
-
             $save->save();
             if ($save) {
                 $message_type = "message_susuccess";

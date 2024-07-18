@@ -218,7 +218,7 @@ use App\PratcieModel;
                     @foreach ($exploreSectors as $exploreSector)
                     <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                         <div class="exploresectorbox">
-                            <a href="/{{$exploreSector->slug}}">
+                            <a href="/sector/{{$exploreSector->slug}}">
                                 <h3>{{$exploreSector->name}}
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="13" viewBox="0 0 27 13" fill="none">

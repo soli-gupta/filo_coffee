@@ -47,6 +47,7 @@
                                     <div class="accordion-content">
                                         <ul class="">
                                             <li><a href="javascript:void(0);">Insights</a></li>
+                                            <li><a href="javascript:void(0);">Insights</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -64,8 +65,11 @@
     <header class="header">
         <div class="container">
             <div class="menu-flex">
-                <div class="logo"> <a href="/" title="LKS"> <img src="{{ STATIC_PUBLIC_URL }}assets/images/logo.svg" width="220" alt="" /> </a> </div>
-                <a href="javascript:void(0);" class="desktophide mobilesearchicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/search_icon.svg" alt="" title="" class="img-fluid"></a> <a id="slide" class="float-left"><i class=""><img src="{{ STATIC_PUBLIC_URL }}assets/images/menu-icon.svg" alt="LKS" width="35" /></i></a>
+                <div class="logo"> <a href="/" title="LKS"> <img src="{{ STATIC_PUBLIC_URL }}assets/images/logo.svg" width="220" alt="" /> </a>
+                </div>
+                <div class="onlymobilesearchsec">
+                    <a href="javascript:void(0);" class="desktophide mobilesearchicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/search_icon.svg" alt="" title="" class="img-fluid"></a> <a id="slide" class="float-left"><i class=""><img src="{{ STATIC_PUBLIC_URL }}assets/images/menu-icon.svg" alt="LKS" width="32" /></i></a>
+                </div>
                 <div class="header-links mobilenone">
                     <ul>
                         <li><a href="javascript:void(0);">Insights <span class="dropdownicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/arrowdown_icon.svg" alt="" title="" class="img-fluid"></span></a>
@@ -78,31 +82,46 @@
                                 <li><a href="javascript:void(0);">Monographs</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{route('people')}}">People</a></li>
+                        <li><a href="/people">People</a></li>
                         <li><a href="javascript:void(0);">Expertise <span class="dropdownicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/arrowdown_icon.svg" alt="" title="" class="img-fluid"></span></a>
                             <div class="megamenu">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-lg-2 col-md-3 col-sm-3 col-12">
+                                        <div class="col-lg-5 col-md-5 col-sm-6 col-12">
                                             <h6>Sectors</h6>
-                                            <ul>
-                                                <li><a href="javascript:void(0);">Automative Logistics</a>
-                                                <li><a href="javascript:void(0);">Defence</a>
-                                                <li><a href="javascript:void(0);">Financial Service</a>
-                                                <li><a href="javascript:void(0);">Food & Agriculture</a>
-                                                <li><a href="javascript:void(0);">IT & ITES</a>
-                                                <li><a href="manufacturing.html">Manufaturing</a>
-                                                <li><a href="javascript:void(0);">Oil and Gas</a>
-                                                <li><a href="javascript:void(0);">Online Gaming</a>
-                                                <li><a href="javascript:void(0);">Pharma & Healthcare</a>
-                                                <li><a href="javascript:void(0);">Renewable Energy</a>
-                                                <li><a href="javascript:void(0);">Retail & E-commerce</a>
-                                                <li><a href="javascript:void(0);">Supply Chain</a>
-                                                <li><a href="javascript:void(0);">Technology & Data Protection</a>
-                                                <li><a href="javascript:void(0);">Telecom and Media</a>
+                                            <ul class="row">
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Automobile and
+                                                        components</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Aviation</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Consumer
+                                                        electronics</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">E-commerce and
+                                                        retail</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Energy</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="manufacturing.html">Engineering and
+                                                        Construction (EPC)</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Financial
+                                                        services</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">FMCG </a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Hospitality </a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">IT and ITES</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Logistics</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Metals</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Mining</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Online gaming</a>
+                                                </li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Pharma and
+                                                        Healthcare</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Real Estate and
+                                                        Infrastructure </a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Technology and
+                                                        Software </a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Telecom and Media</a>
+                                                </li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);">Textiles</a></li>
                                             </ul>
                                         </div>
-                                        <div class="col-lg-2 col-md-3 col-sm-3 col-12">
+                                        <div class="col-lg-2 col-md-2 col-sm-3 col-12">
                                             <h6>Services </h6>
                                             <ul>
                                                 <li><a href="javascript:void(0);">Transaction</a></li>
@@ -112,33 +131,50 @@
                                                 <li><a href="javascript:void(0);">Technology</a></li>
                                             </ul>
                                         </div>
-                                        <div class="col-lg-8 col-md-6 col-sm-6 col-12">
+                                        <div class="col-lg-5 col-md-5 col-sm-6 col-12">
                                             <h6>Practices </h6>
                                             <ul class="row">
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Arbitration</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Classification</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Commercial Litigation</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Competition and Antitrust</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Customs</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Data Protection</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="direct-tax.html" title="">Direct Tax</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Economic Offences</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Employment Law</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">General Corporate</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Good & Service tax Consultancy</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Good & Service tax Litigation</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Insolvency</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Intellectual Property</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">International Trade & WTO</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Mergers & Acquistions</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Private Equity</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Real Estate Law</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Regulatory</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Securities Law</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Supply Chain</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Tax Compliance Review & Due Deligence</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Technology Media Telecom (TMT)</a></li>
-                                                <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Transfer Pricing</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Arbitration</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Classification</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Commercial
+                                                        Litigation</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Competition
+                                                        and Antitrust</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Customs</a>
+                                                </li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Data
+                                                        Protection & TMT</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="direct-tax.html" title="">Direct Tax</a>
+                                                </li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Economic
+                                                        Offences</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Employment
+                                                        Law</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">General
+                                                        Corporate</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">GST
+                                                        Consultancy</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">GST
+                                                        Litigation</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Insolvency</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Intellectual
+                                                        Property</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">International Trade & WTO</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Mergers &
+                                                        Acquistions</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Private
+                                                        Equity</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Real Estate
+                                                        Law</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Regulatory</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Securities
+                                                        Law</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Supply
+                                                        Chain</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Tax
+                                                        Compliance Review</a></li>
+                                                <li class="col-lg-6 col-md-6 col-sm-6 col-6"><a href="javascript:void(0);" title="">Transfer
+                                                        Pricing</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -147,16 +183,16 @@
                         </li>
                         <li><a href="javascript:void(0);">About Us <span class="dropdownicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/arrowdown_icon.svg" alt="" title="" class="img-fluid"></span></a>
                             <ul class="mainsubnav">
-                                <li><a href="{{route('who-we-are')}}">Who we are</a></li>
-                                <li><a href="javascript:void(0);">Our History</a></li>
-                                <li><a href="{{ route('our-values')}}">Our Values</a></li>
-                                <li><a href="{{ route('awards')}}">Our Awards </a></li>
-                                <li><a href="javascript:void(0);">Testimonials</a></li>
+                                <li><a href="/who-we-are">Who we are</a></li>
+                                <li><a href="/our-history">Our History</a></li>
+                                <li><a href="/our-value">Our Values</a></li>
+                                <li><a href="/awards">Our Awards </a></li>
+                                <li><a href="/testimonials">Testimonials</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void(0);">Grow With Us <span class="dropdownicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/arrowdown_icon.svg" alt="" title="" class="img-fluid"></span></a>
+                        <li><a href="/career">Grow With Us <span class="dropdownicon"><img src="{{ STATIC_PUBLIC_URL }}assets/images/arrowdown_icon.svg" alt="" title="" class="img-fluid"></span></a>
                             <ul class="mainsubnav">
-                                <li><a href="{{ route('career')}}">Careers</a></li>
+                                <li><a href="/career">Careers</a></li>
                                 <li><a href="javascript:void(0);">LKS Internships</a></li>
                                 <li><a href="javascript:void(0);">Life at LKS</a></li>
                             </ul>
@@ -202,30 +238,50 @@
                                 <div class="accordion-body">
 
                                     <ul class="row">
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Arbitration</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Arbitration</a>
+                                        </li>
                                         <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Classification</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Commercial Litigation</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Competition and Antitrust</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Commercial
+                                                Litigation</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Competition and
+                                                Antitrust</a></li>
                                         <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Customs</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Data Protection</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Direct Tax</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Economic Offences</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Employment Law</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">General Corporate</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Good & Service tax Consultancy</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Good & Service tax Litigation</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Insolvency</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Intellectual Property</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">International Trade & WTO</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Mergers & Acquistions</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Private Equity</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Real Estate Law</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Regulatory</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Securities Law</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Supply Chain</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Tax Compliance Review & Due Deligence</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Technology Media Telecom (TMT)</a></li>
-                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Transfer Pricing</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Data Protection
+                                                & TMT</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Direct Tax</a>
+                                        </li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Economic
+                                                Offences</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Employment
+                                                Law</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">General
+                                                Corporate</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">GST
+                                                Consultancy</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">GST
+                                                Litigation</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Insolvency</a>
+                                        </li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Intellectual
+                                                Property</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">International
+                                                Trade & WTO</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Mergers &
+                                                Acquistions</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Private
+                                                Equity</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Real Estate
+                                                Law</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Regulatory</a>
+                                        </li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Securities
+                                                Law</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Supply Chain</a>
+                                        </li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Tax Compliance
+                                                Review</a></li>
+                                        <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Transfer
+                                                Pricing</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -253,7 +309,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="mobilenone">
                     <div class="row">
                         <div class="col-lg-2 col-md-2 col-sm-6 col-12">
@@ -272,30 +327,51 @@
                             <div class="footer-links-box">
                                 <h6>Practices</h6>
                                 <ul class="row">
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Arbitration</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Classification</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Commercial Litigation</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Competition and Antitrust</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Arbitration</a>
+                                    </li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Classification</a>
+                                    </li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Commercial
+                                            Litigation</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Competition and
+                                            Antitrust</a></li>
                                     <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Customs</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Data Protection</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Direct Tax</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Economic Offences</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Employment Law</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">General Corporate</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Good & Service tax Consultancy</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Good & Service tax Litigation</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Insolvency</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Intellectual Property</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">International Trade & WTO</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Mergers & Acquistions</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Private Equity</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Real Estate Law</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Regulatory</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Securities Law</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Supply Chain</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Tax Compliance Review & Due Deligence</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Technology Media Telecom (TMT)</a></li>
-                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Transfer Pricing</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Data Protection &
+                                            TMT</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Direct Tax</a>
+                                    </li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Economic
+                                            Offences</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Employment Law</a>
+                                    </li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">General
+                                            Corporate</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">GST
+                                            Consultancy</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">GST Litigation</a>
+                                    </li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Insolvency</a>
+                                    </li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Intellectual
+                                            Property</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">International
+                                            Trade & WTO</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Mergers &
+                                            Acquistions</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Private Equity</a>
+                                    </li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Real Estate
+                                            Law</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Regulatory</a>
+                                    </li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Securities Law</a>
+                                    </li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Supply Chain</a>
+                                    </li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Tax Compliance
+                                            Review</a></li>
+                                    <li class="col-lg-4 col-md-4 col-sm-6 col-6"><a href="javascript:void(0);" title="">Transfer
+                                            Pricing</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -316,24 +392,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="footermiddle">
-                    <div class="row align-items-center">
-                        <div class="col-lg-7 col-md-7 col-sm-7 col-12">
-                            <div class="footermiddleleft">
-                                <img src="{{ STATIC_PUBLIC_URL }}assets/images/logo.svg" width="190" alt="" class="footerlogo mobilenone img-fluid">
-                                <div class="phonetab"> <a href="javascript:void(0);"><img src="{{ STATIC_PUBLIC_URL }}assets/images/call.svg" alt="" class="img-fluid"> +91 11 41299800</a>
-                                    <a href="javascript:void(0);"><img src="{{ STATIC_PUBLIC_URL }}assets/images/email.svg" alt="" class="img-fluid"> info@lakshmisri.com</a>
-                                </div>
+            </div>
+            <div class="footermiddle">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-12">
+                        <div class="footermiddleleft">
+                            <img src="{{ STATIC_PUBLIC_URL }}assets/images/logo.svg" width="190" alt="" class="footerlogo mobilenone img-fluid">
+                            <div class="phonetab"> <a href="javascript:void(0);"><img src="{{ STATIC_PUBLIC_URL }}assets/images/call.svg" alt="" class="img-fluid">
+                                    +91 11 41299800</a>
+                                <a href="javascript:void(0);"><img src="{{ STATIC_PUBLIC_URL }}assets/images/email.svg" alt="" class="img-fluid">
+                                    info@lakshmisri.com</a>
                             </div>
                         </div>
-                        <div class="col-lg-5 col-md-5 col-sm-5 col-12">
-                            <div class="footermiddlesocial">
-                                <ul>
-                                    <li><a href="https://www.linkedin.com/company/lakshmikumaran-and-sridharan/" target="_blank"><img src="{{ STATIC_PUBLIC_URL }}assets/images/linkedin.svg" alt="" class="img-fluid"></a></li>
-                                    <li><a href="https://www.facebook.com/lsipr" target="_blank"><img src="{{ STATIC_PUBLIC_URL }}assets/images/facebook.svg" alt="" class="img-fluid"></a></li>
-                                    <li><a href="https://twitter.com/LKSattorneys" target="_blank"><img src="{{ STATIC_PUBLIC_URL }}assets/images/twitter.svg" alt="" class="img-fluid"></a></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-12">
+                        <div class="footermiddlesocial">
+                            <ul>
+                                <li><a href="https://www.linkedin.com/company/lakshmikumaran-and-sridharan/" target="_blank"><img src="{{ STATIC_PUBLIC_URL }}assets/images/linkedin.svg" alt="" class="img-fluid"></a></li>
+                                <li><a href="https://www.facebook.com/lsipr" target="_blank"><img src="{{ STATIC_PUBLIC_URL }}assets/images/facebook.svg" alt="" class="img-fluid"></a></li>
+                                <li><a href="https://twitter.com/LKSattorneys" target="_blank"><img src="{{ STATIC_PUBLIC_URL }}assets/images/twitter.svg" alt="" class="img-fluid"></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

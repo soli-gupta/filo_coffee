@@ -10,15 +10,15 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Details</h3> &nbsp;
 
-                    @if ($data_row->id == 4)
+                    @if (isset($data_row->id) && $data_row->id == 4)
                     <a class="btn btn-primary" href="<?php echo ADMIN_URL; ?>/leadership">View Peoples</a> &nbsp;
                     @endif
 
-                    @if ($data_row->id == 5)
+                    @if (isset($data_row->id) && $data_row->id == 5)
                     <a class="btn btn-primary" href="<?php echo ADMIN_URL; ?>/awards">View Awards</a> &nbsp;
                     @endif
 
-                    @if ($data_row->id == 9)
+                    @if (isset($data_row->id) && $data_row->id == 9)
                     <a class="btn btn-primary" href="<?php echo ADMIN_URL; ?>/our-value-services">View Services</a> &nbsp;
                     @endif
 
